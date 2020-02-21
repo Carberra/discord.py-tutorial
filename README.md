@@ -1,4 +1,4 @@
-# discord.py-tutorial
+# Building a discord.py bot
 
 This repository contains all the code for the bot constructed over the course of my series "Building a discord.py bot", which can be found here: https://www.youtube.com/playlist?list=PLYeOw6sTSy6bHr2w8nOV0CpKskuOuU1XE.
 
