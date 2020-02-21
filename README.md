@@ -16,10 +16,8 @@ Download the latest version from here: https://www.python.org/downloads/.
 `python3.x -m pip install discord.py` (replace "x" with your subversion).
 #### On Windows:
 `pip install discord.py`, or
-##### For Python >= 3.8:
-`py -m pip install discord.py`, or
-##### For Python < 3.8:
-`python -m pip install discord.py`
+- For Python >= 3.8: `py -m pip install discord.py`
+- For Python < 3.8: `python -m pip install discord.py`
 
 ## Notes
 
