@@ -6,12 +6,12 @@ This repository contains all the code for the bot constructed over the course of
 
 ### You will need:
 - Python 3.7.0 or greater;
-- discord.py 1.0.0 or greater.
+- `discord.py` 1.0.0 or greater.
 
 ### To install Python:
-Download the latest version from here: https://www.python.org/downloads/
+Download the latest version from here: https://www.python.org/downloads/.
   
-### To install discord.py:
+### Pip installs:
 #### On Unix based systems:
 `python3.x -m pip install discord.py` (replace "x" with your subversion).
 #### On Windows:
