@@ -46,9 +46,9 @@ from discord.ext.commands import BadArgument, CommandNotFound, MissingPermission
 TOKEN = "your-token-here"
 PREFIX = "!"
 CURSES = ("cunt", "faggot", "nigger")
-VERSION = "1.1.6"
+VERSION = "1.1.7"
 CHANGES = """
-- Fixed another bug with regards to not having permissions to DM a user.
+- Fixed a bug where the !announcements command would remove the @Videos role instead.
 """
 
 Me = Bot(command_prefix=PREFIX, max_messages=100)
@@ -452,7 +452,7 @@ async def optin_to_announcements(Ctx):
 		await Ctx.author.edit(roles=[*Ctx.author.roles, get.role("Announcements")])
 		await Ctx.send("You'll now be alerted of new announcements and updates. To stop these alerts, type ` !announcements ` again.")
 	else:
-		await Ctx.author.edit(roles=[Role for Role in Ctx.author.roles if Role is not get.role("Videos")])
+		await Ctx.author.edit(roles=[Role for Role in Ctx.author.roles if Role is not get.role("Announcements")])
 		await Ctx.send("You'll no longer be alerted of new announcements and updates. To receive these alerts again, type ` !announcements `.")
 	return
 
