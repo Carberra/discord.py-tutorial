@@ -46,9 +46,9 @@ from discord.ext.commands import BadArgument, CommandNotFound, MissingPermission
 TOKEN = "your-token-here"
 PREFIX = "!"
 CURSES = ("cunt", "faggot", "nigger")
-VERSION = "1.1.7"
+VERSION = "1.1.8"
 CHANGES = """
-- Fixed a bug where the !announcements command would remove the @Videos role instead.
+- Stop Tutorial Bot interfering with S4's gateway systems.
 """
 
 Me = Bot(command_prefix=PREFIX, max_messages=100)
@@ -487,7 +487,9 @@ async def on_member_join(Member):
 	if not Member.bot:
 		database.execute("INSERT INTO users (UserID) VALUES (?)", Member.id)
 		Database.commit()
-		await Member.edit(roles=[*Member.roles, get.role("Videos"), get.role("Announcements")])
+		# await Member.edit(roles=[*Member.roles, get.role("Videos"), get.role("Announcements")])
+		# How did I not know about this before?! Updated in v1.1.8
+		await Member.add_roles(get.role("Announcements"), get.role("Videos"))
 		await get.channel("welcome").send(f"Welcome to **{Member.guild.name}** {Member.mention}! Head over to {get.channel('general').mention} and say hi!")
 	else:
 		await get.channel("welcome").send(f"A new bot, **{Member.name}**, just joined.")
