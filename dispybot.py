@@ -46,9 +46,9 @@ from discord.ext.commands import BadArgument, CommandNotFound, MissingPermission
 TOKEN = "your-token-here"
 PREFIX = "!"
 CURSES = ("cunt", "faggot", "nigger")
-VERSION = "1.1.8"
+VERSION = "1.1.9"
 CHANGES = """
-- Stop Tutorial Bot interfering with S4's gateway systems.
+- Disabled the experience system (all the code is intact, just never called).
 """
 
 Me = Bot(command_prefix=PREFIX, max_messages=100)
@@ -557,7 +557,7 @@ async def on_raw_reaction_remove(Payload):
 async def on_message(Message):
 	"""Called automatically whenever a message is send to the server."""
 	if not Message.author.bot and not await automod.check_curses(Message):
-		await levelling.add_xp(Message)
+		#await levelling.add_xp(Message)
 		await Me.process_commands(Message)
 	return
 
