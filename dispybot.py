@@ -46,17 +46,16 @@ from discord.ext.commands import BadArgument, CommandNotFound, MissingPermission
 TOKEN = "your-token-here"
 PREFIX = "!"
 CURSES = ("cunt", "faggot", "nigger")
-VERSION = "1.1.9"
+VERSION = "1.1.10"
 CHANGES = """
-- Disabled the experience system (all the code is intact, just never called).
+- Made modifications to enable the bot to work with the VPS' new file structure.
 """
 
 Me = Bot(command_prefix=PREFIX, max_messages=100)
 Guild = object()
-Database = connect("dispybot/database.db", check_same_thread=False)
+Database = connect("database.db", check_same_thread=False)
 # ^ Updated in v1.1.1 to include `check_same_thread`.
 #    Use this if your program complains about making changes on different threads.
-#    The directory was also changed so the bot could access the database on the server.
 Cursor = Database.cursor()
 Scheduler = AsyncIOScheduler()
 
@@ -145,6 +144,7 @@ class colours:
 		"""Assigns a colour role to the member.
 		`Payload` is used as this is made using a raw HTTP request."""
 		Member = Guild.get_member(Payload.user_id)
+		print(Guild, Member)
 		if any([get.role(rolename) in Member.roles for rolename in colours.roles.values()]):
 			try:
 				await Member.send("⚠ You already have a colour role. Unreact the one you have first.")
